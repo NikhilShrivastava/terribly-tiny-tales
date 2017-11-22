@@ -6,6 +6,7 @@ var _= require('lodash');
 var async = require('async');
 
 var ApiError = require('../../lib/error/apiError');
+var config = require('../../config');
 
 var TTT = {
 
@@ -17,40 +18,65 @@ var TTT = {
 	    return next(new ApiError('NAN'));
 		}
 		var options = {
-	    method  : 'GET',
-	    url     : 'http://terriblytinytales.com/test.txt',
-	    timeout : 20000
+	    method  : config.method,
+	    url     : config.ttt_endpoint,
+	    timeout : config.timeout
 	  };
-	  request(options, function(e,r,b) {
-	  	//TODO:validation handling
-	  	req.fileDtata = b;
+	  request(options, function(e, r, b) {
+			if(e || !r) {
+				return next(new ApiError('FNF'));
+			}
+			var fileData = {
+				file : [{b}],
+				numberReceived : req.body.numValue
+			};
+	  	req.fileData = fileData;
 	  	next();
 	  });
 	},
 
 	mostFreqOccuringwords: function(req, res, next) {
-
-		var aa = req.fileDtata;
+		var tttFileData = req.fileData.file;
 		  async.waterfall([
 		    _readFile,
 		    _findWordCount
-		  ], function (err) {
-		  if (err) {
-		    return cb(err, item);
-		  }
-		    return cb(null, item);
-		  });
+		  ], function (err, resp) {
+				if (err) {
+					return next(err);
+				}
+					next(null, resp);
+		});
 
+		function _readFile(cb) {
+			var result = [],
+					hash = {};
+			/**
+			 * It reads the file and counts the words in the file and maintains the hash
+			 * E.g. : { name: 'tales', count: 2 }
+			 */
 
-		  function _readFile(cb) {
-		  	var result = [],
-		  			hash = {};
-		  			cb();
-		  }
+			tttFileData.forEach(function (bb) {
+				var words = bb.b.split(" ");
+				words.forEach(function (word) {
+					word = word.toLowerCase();
+					if (word !== "") {
+						if (!hash[word]) {
+							hash[word] = { name: word, count: 0 };
+							result.push(hash[word]);
+						}
+						hash[word].count++;
+					}
+				});
+			});
+			var hashResult = result.sort(function (a, b) { return b.count - a.count;});
+			cb(null, hashResult, req.fileData.numberReceived);
+		}
 
-		  function _findWordCount (fileData, cb) {
-		    next();
-		  }
+		function _findWordCount (hashResult, receivedNumber, cb) {
+			console.log(hashResult);
+
+			cb();
+		}
 	}
 
 };
