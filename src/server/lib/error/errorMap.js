@@ -39,6 +39,12 @@ var map = {
       message : "Not a number",
       title   : "Not a number in the request received",
       status  : 400
+    },
+
+    'FNF': {
+      message : "File not found",
+      title   : "File not found in the request received",
+      status  : 404
     }
 
   }

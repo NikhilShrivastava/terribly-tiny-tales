@@ -32,11 +32,10 @@ class LandingPage extends React.Component {
 
     render() {
         return (
-                <div> Screen Test</div>
-                // <div className="numForm"> Screen <br/>
-                //   <input name="numb" type="text" placeholder="Enter Number" value={this.state.numValue} onChange={this.handleChange}/>
-                //   <button onClick={this.submitNumberProceed}> Submit </button>
-                // </div>
+                <div className="numForm"> Screen <br/>
+                  <input name="numb" type="text" placeholder="Enter Number" value={this.state.numValue} onChange={this.handleChange}/>
+                  <button onClick={this.submitNumberProceed}> Submit </button>
+                </div>
         );
     }
 }
