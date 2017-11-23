@@ -10,8 +10,6 @@ module.exports = function(app) {
     res.sendStatus(200);
   });
 
-  app.post('/submitNumber', file.fetchTTTFile, file.mostFreqOccuringwords, error, respond);
-
-  app.get('/getResult', error, respond);
+  app.post('/submitNumber', file.fetchTTTFile, file.mostFreqOccuringwords, respond, error);
 
 };
