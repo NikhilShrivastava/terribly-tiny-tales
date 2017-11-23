@@ -33,7 +33,23 @@
 
 ## Code Components ##
 
-## Libraries and Plugins used ##
+## Major Libraries and Plugins used ##
+
+###### Client Side ######
+
+> React
+> Babel
+> Webpack
+
+###### Server Side ######
+
+> Mysql
+> Request
+> Lodash
+
+###### Testing ######
+
+> Mocha
 
 ## Test cases along with test data and screenshots ##
 
