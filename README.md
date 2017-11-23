@@ -28,7 +28,9 @@
     ```
 
 3. Run test cases:
-   _ mocha test/fileTest
+     ```sh
+    mocha test/fileTest
+    ```
 
 ## Code Components ##
 
