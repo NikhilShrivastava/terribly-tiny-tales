@@ -3,6 +3,7 @@
 import React from 'react';
 import './submitNumber.scss';
 import 'whatwg-fetch';
+import FinalResult from '../viewResult/viewResult'
 import {postData} from '../../lib/fetch';
 import {submitNumber as submitNum} from '../../lib/urls';
 
@@ -47,7 +48,9 @@ class LandingPage extends React.Component {
                             <button onClick={this.submitNumberProceed}> Submit </button>
                         </div>
                     </div>
-                    <div className="resultTable"><tr></tr></div>
+                    <div>
+                        <FinalResult/>
+                    </div>
                 </div>
         );
     }
