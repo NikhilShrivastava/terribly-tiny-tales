@@ -30,7 +30,7 @@
 3. Run test cases:
    _ mocha test/fileTest
 
-## Code Components##
+## Code Components ##
 
 ## Libraries and Plugins used ##
 
