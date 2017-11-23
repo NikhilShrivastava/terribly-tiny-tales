@@ -28,7 +28,6 @@
 
 3. Run test cases:
      ```sh
-     npm run start
      mocha test/fileTest
      ```
 
