@@ -2,7 +2,7 @@
 
 var request = require('request');
 var q = require('q');
-var _= require('lodash');
+var _ = require('lodash');
 var async = require('async');
 
 var ApiError = require('../../lib/error/apiError');
@@ -11,7 +11,7 @@ var config = require('../../config');
 var TTT = {
 
 	fetchTTTFile: function(req, res, next) {
-		if(!req.body || !req.body.numValue) {
+		if(!req || !req.body || !req.body.numValue) {
 	    return next(new ApiError('NO_NUM'));
 		}
 		if(!Number(req.body.numValue)){
@@ -41,15 +41,16 @@ var TTT = {
 		    _readFile,
 		    _findWordCount
 		  ], function (err, resp) {
-				if (err) {
-					return next(err);
-				}
-					next(null, resp);
+			  if (err) {
+				  return next(err);
+			  }
+			  req.sendResult = resp;
+			  next();
 		});
 
 		function _readFile(cb) {
 			var result = [],
-					hash = {};
+				hash = {};
 			/**
 			 * It reads the file and counts the words in the file and maintains the hash
 			 * E.g. : { name: 'tales', count: 2 }
@@ -73,9 +74,12 @@ var TTT = {
 		}
 
 		function _findWordCount (hashResult, receivedNumber, cb) {
-			console.log(hashResult);
-
-			cb();
+			var finalResult = {};
+			//return the top N most frequently occurring words in this file
+			//Display the top N words and their frequency of occurrence in the frontend, in a tabular format
+			var nMostFreqOccurWords = _.filter(hashResult, {count : Number(receivedNumber)});
+			finalResult.nMostFreqOccurWords = nMostFreqOccurWords;
+			cb(null, finalResult);
 		}
 	}
 

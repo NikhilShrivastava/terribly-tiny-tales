@@ -2,7 +2,6 @@
 
 import React from 'react';
 import './submitNumber.scss';
-// import {Link, Redirect} from 'react-router-dom';
 import 'whatwg-fetch';
 import {postData} from '../../lib/fetch';
 import {submitNumber as submitNum} from '../../lib/urls';
@@ -31,10 +30,24 @@ class LandingPage extends React.Component {
     }
 
     render() {
-        return (
-                <div className="numForm"> Screen <br/>
-                  <input name="numb" type="text" placeholder="Enter Number" value={this.state.numValue} onChange={this.handleChange}/>
-                  <button onClick={this.submitNumberProceed}> Submit </button>
+        return (<div>
+                    <div className="mainHeader">
+                        <div className="headerText">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/kanikash4/terribly-tiny-tales">Source Code</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="clear-both"></div>
+                    <div className="numForm"> 
+                        <div className="numberContainer">
+                            <input name="numb" type="text" placeholder="Enter Number" value={this.state.numValue} onChange={this.handleChange}/>
+                            <button onClick={this.submitNumberProceed}> Submit </button>
+                        </div>
+                    </div>
+                    <div className="resultTable"><tr></tr></div>
                 </div>
         );
     }
