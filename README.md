@@ -28,8 +28,9 @@
 
 3. Run test cases:
      ```sh
-    mocha test/fileTest
-    ```
+     npm run start
+     mocha test/fileTest
+     ```
 
 ## Code Components ##
 
