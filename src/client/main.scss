@@ -4,10 +4,75 @@ html {
   width: 100%;
   body {
     height: 100%;
-    margin: 0;
+    margin: 0px;
+    padding:0px;
     width: 100%;
     /*    box-sizing: border-box;
     */
     background-color: #ececeb;
   }
+}
+
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 70%;
+margin: auto;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+.mainHeader {
+  height: 30px;
+  background-color: lightgrey;
+  margin: 0px;
+  padding: 0px;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E2E2E2);
+  width: 100%;
+  border-bottom: 2px solid #DFF;
+}
+.headerText li{
+  display: inline;
+  margin-right: 2px;
+}
+.headerText ul {
+  margin: 0px;
+  padding: 10px;
+  float: right;
+}
+.headerText ul li a:hover {
+  text-decoration:underline;
+}
+.headerText ul li a {
+  color : black;
+  text-align: justify;
+  text-decoration: none;
+}
+.submitForm {
+  float: right;
+  margin: 5px 0px 5px 0px;
+}
+.submitForm input {
+    width: 50%;
+}
+.submitForm button {
+  height: 23px;
+  border-radius: 4px;
+  margin-left: 2px;
+  width: 120px;
+}
+.clear-both {
+  clear: both;
+}
+
+.resultContainer {
+  margin: 50px 0px 0px 0px;
 }
