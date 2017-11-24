@@ -31,8 +31,6 @@
      mocha test/fileTest
      ```
 
-## Code Components ##
-
 ## Major Libraries and Plugins used ##
 
 ###### Client Side ######
@@ -46,6 +44,7 @@
 > Mysql
 > Request
 > Lodash
+> Async
 
 ###### Testing ######
 
