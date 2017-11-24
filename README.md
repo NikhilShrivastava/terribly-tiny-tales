@@ -50,6 +50,3 @@
 ###### Testing ######
 
 > Mocha
-
-## Test cases along with test data and screenshots ##
-

@@ -77,7 +77,7 @@ var TTT = {
 			var finalResult = {};
 			//return the top N most frequently occurring words in this file
 			//Display the top N words and their frequency of occurrence in the frontend, in a tabular format
-			var nMostFreqOccurWords = _.filter(hashResult, {count : Number(receivedNumber)});
+			var nMostFreqOccurWords = _.filter(hashResult, {count : Number(receivedNumber)}).slice(0,Number(receivedNumber));
 			finalResult.nMostFreqOccurWords = nMostFreqOccurWords;
 			cb(null, finalResult);
 		}
